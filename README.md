@@ -11,6 +11,11 @@
     ```
 
 # HOW TO USE:
+To run the server do:
+```sh
+$ php artisan serve
+```
+
 Once the app set up, you will want to register a user:
 ```sh
 $ curl -X POST -H 'Content-Type: application/json' -i http://localhost:8000/api/register --data '{"email": "email","password": "pwd","c_password": "pwd","name": "user Name"}'
