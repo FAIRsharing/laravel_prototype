@@ -1,0 +1,50 @@
+- Install and add laravel to $PATH (use composer)
+
+- Create the project:
+	$ laravel new myprojectname
+
+- Add the DB:
+	Once your database created, open the .env file in your project. 
+	From there, set your database location and login.
+
+- Set authentication:
+	php artisan make:auth
+
+- Trigger the server:
+	you can test the server anytime with: $ php artisan serve
+
+- Create a migration table:
+	php artisan make:migration create_records_table --create=records
+	this creates the migration file with path database/migrations/{{datetime}}_create_records_table.php
+	you can add the table fields in that migration file
+
+- Trigger the migration:
+	In some instance, you might get a MySQL error when trigerring the migration:
+	[SQLSTATE[42000]: Syntax error or access violation: 1071 Specified key was too long; max key length is 1000 bytes (SQL: alter table `users` add unique `users_email_unique`(`email`))]
+	To prevent: go to app/providers/AppServiceProvider.php and add the follow to the boot() method:
+	use Illuminate\Support\Facades\Schema;
+	public function boot()
+    {
+        Schema::defaultStringLength(191);
+    }
+    To migrate:
+    $ php artisant migrate
+    At that point, you should have 4 tables:
+    	migrations
+    	password_resets
+    	records
+    	users
+    To drop before migration: php artisan migrate:fresh
+
+- Generate some fake data by generating a seeder and a factory
+	$ php artisan make:model --factory Record  # generates the RecordFactor in database/factories where you can add the faker
+	$ php artisan make:seeder RecordsTableSeeder  # creates the seeder tp database/seeds/RecordsTableSeeder.php
+
+- API routes are in routes/api.php
+Create a record controller to app/Http/Controllers/RecordController.php: $ php artisan make:controller RecordController
+
+
+Registering a user:
+curl -X POST -H 'Content-Type: application/json' -i http://localhost:8000/api/register --data '{"email": "email", "password": "pwd","c_password": "pwd","name": "Username"}'
+Loging in:
+curl -X POST -H 'Content-Type: application/json' -i http://localhost:8000/api/login --data '{"email": "email","password": "pwd"}'
