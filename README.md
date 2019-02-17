@@ -33,15 +33,20 @@ $ curl -X POST -H 'Content-Type: application/json' -i http://localhost:8000/api/
 
 To get your API key (with the login/password previously registered):
 ```sh
-curl -X POST -H 'Content-Type: application/json' -i http://localhost:8000/api/login --data '{"email": "email","password": "pwd"}'
+$ curl -X POST -H 'Content-Type: application/json' -i http://localhost:8000/api/login --data '{"email": "email","password": "pwd"}'
 ```
 
 To get records (you will need an api key for this, only 5 records available):
 ```sh
-curl -X GET -H 'Authorization: Bearer YourAPIKey' -i http://localhost:8000/api/records/1
+$ curl -X GET -H 'Authorization: Bearer YourAPIKey' -i http://localhost:8000/api/records/1
 ```
 
 To get all records:
 ```sh
-curl -X GET -H -i http://localhost:8000/api/records
+$ curl -X GET -H -i http://localhost:8000/api/records
+```
+
+To run unit tests, from the project directory:
+```sh
+$ ./vendor/bin/phpunit
 ```
