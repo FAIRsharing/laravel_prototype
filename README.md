@@ -1,6 +1,6 @@
 # HOW TO INSTALL:
 1) clone repo
-2) install composer (check https://getcomposer.org/ and, once installed, don't forget to add php to your $PATH variable)
+2) install composer (check https://getcomposer.org/)
 3) Create an empty database (mysql, psql)
 4) Go to repo, open .env and set your DB access and location:
     ```sh
