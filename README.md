@@ -27,12 +27,13 @@
     $ composer require rebing/graphql-laravel
     $ php artisan vendor:publish --provider="Rebing\GraphQL\GraphQLServiceProvider"
     ```
-# HOW TO USE:
+# HOW TO RUN:
 To run the server do:
 ```sh
 $ php artisan serve
 ```
 
+# USING REST ENDPOINTS
 To get all records:
 ```sh
 $ curl -X GET -H -i http://localhost:8000/api/records
@@ -53,6 +54,7 @@ To get a specific record (you will need an api key for this, only 5 records avai
 $ curl -X GET -H 'Authorization: Bearer YourAPIKey' -i http://localhost:8000/api/records/1
 ```
 
+# USING GRAPHQL ENDPOINTS:
 To get users through a GraphQL query:
 ```sh
     GET to localhost:8000/graphl with input:
@@ -60,10 +62,22 @@ To get users through a GraphQL query:
         users {
             id
             email
-            }
+        }
     }
 ```
 
+To update a user password through a GraphQL mutation:
+```sh
+    GET to localhost:8000/graphl with input:
+    mutation users {
+        updateUserPassword(id: "1", password: "newpassword") {
+            id
+            email
+        }
+    }
+```
+
+# UNIT TESTS:
 To run unit tests, from the project directory:
 ```sh
 $ ./vendor/bin/phpunit
