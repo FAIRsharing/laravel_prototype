@@ -26,6 +26,8 @@
     $ composer require webonyx/graphql-php
     $ composer require rebing/graphql-laravel
     ```
+    The tutorial for using graphsql for laravel is available here: https://github.com/rebing/graphql-laravel
+    
 # HOW TO RUN:
 To run the server do:
 ```sh
