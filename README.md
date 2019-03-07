@@ -20,7 +20,13 @@
 	$ php artisan passport:install	
     ```
     This will install all dependencies, migrate the database and feed its **records** and **users** tables with fake data.
-    
+
+7) Installing GRAPHQL dependencies:
+    ```sh
+    $ composer require webonyx/graphql-php
+    $ composer require rebing/graphql-laravel
+    $ php artisan vendor:publish --provider="Rebing\GraphQL\GraphQLServiceProvider"
+    ```
 # HOW TO USE:
 To run the server do:
 ```sh
