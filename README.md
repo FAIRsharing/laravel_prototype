@@ -25,7 +25,6 @@
     ```sh
     $ composer require webonyx/graphql-php
     $ composer require rebing/graphql-laravel
-    $ php artisan vendor:publish --provider="Rebing\GraphQL\GraphQLServiceProvider"
     ```
 # HOW TO RUN:
 To run the server do:
@@ -64,6 +63,8 @@ To get users through a GraphQL query:
             email
         }
     }
+    $ curl -X POST -H 'Content-Type: application/json' -i http://localhost:8000/graphql --data '{ "query": "{ users { id email } }" }'
+    # No idea why I can't trigger the request through curl as a GET
 ```
 
 To update a user password through a GraphQL mutation:
