@@ -70,7 +70,7 @@ To update a user password through a GraphQL mutation:
 ```sh
     GET to localhost:8000/graphl with input:
     mutation users {
-        updateUserPassword(id: "1", password: "newpassword") {
+        updateUserPassword(id: "1", password: "newpassword", email:"user@email.com") {
             id
             email
         }
