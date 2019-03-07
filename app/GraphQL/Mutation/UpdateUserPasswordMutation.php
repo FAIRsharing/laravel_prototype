@@ -26,6 +26,25 @@ class UpdateUserPasswordMutation extends Mutation
         ];
     }
 
+    public function rules(array $args = [])
+    {
+        return [
+            'id' => ['required'],
+            'email' => ['required', 'email']
+        ];
+    }
+
+    public function validationErrorMessages ($args = []) 
+    {
+        return [
+            'name.required' => 'Please enter your full name',
+            'name.string' => 'Your name must be a valid string',
+            'email.required' => 'Please enter your email address',
+            'email.email' => 'Please enter a valid email address',
+            'email.exists' => 'Sorry, this email address is already in use',                     
+        ];
+    }
+
     public function resolve($root, $args)
     {
         $user = User::find($args['id']);
