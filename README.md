@@ -53,6 +53,17 @@ To get a specific record (you will need an api key for this, only 5 records avai
 $ curl -X GET -H 'Authorization: Bearer YourAPIKey' -i http://localhost:8000/api/records/1
 ```
 
+To get users through a GraphQL query:
+```sh
+    GET to localhost:8000/graphl with input:
+    query FetchUsers {
+        users {
+            id
+            email
+            }
+    }
+```
+
 To run unit tests, from the project directory:
 ```sh
 $ ./vendor/bin/phpunit
