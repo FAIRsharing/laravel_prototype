@@ -34,7 +34,7 @@ class UpdateUserPasswordMutation extends Mutation
         ];
     }
 
-    public function validationErrorMessages ($args = []) 
+    public function validationErrorMessages (array $args = [])
     {
         return [
             'name.required' => 'Please enter your full name',
