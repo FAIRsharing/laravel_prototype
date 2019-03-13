@@ -22,6 +22,7 @@ class UpdateUserPasswordMutation extends Mutation
     {
         return [
             'id' => ['name' => 'id', 'type' => Type::nonNull(Type::string())],
+            'email' => ['name' => 'email', 'type' => Type::nonNull(Type::string())],
             'password' => ['name' => 'password', 'type' => Type::nonNull(Type::string())]
         ];
     }
